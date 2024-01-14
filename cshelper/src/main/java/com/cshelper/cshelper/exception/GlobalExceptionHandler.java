@@ -26,7 +26,15 @@ public class GlobalExceptionHandler {
   public ResponseEntity<String> handleTypeMismatch(HttpMessageNotReadableException e) {
     return ResponseEntity
             .status(HttpStatus.BAD_REQUEST)
-            .body("입력 타입이 잘 못 되었습니다.");
+            .body("틀린 타입을 입력하셨습니다.");
+  }
+
+  // parameter가 올바르지 않을 때 예외 처리
+  @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+  public ResponseEntity<String> handleTypeMismatch(MethodArgumentTypeMismatchException e) {
+    return ResponseEntity
+            .status(HttpStatus.BAD_REQUEST)
+            .body("틀린 타입을 입력하셨습니다.");
   }
 
 
@@ -42,6 +50,7 @@ public class GlobalExceptionHandler {
             .body(errors);
   }
 
+  // 조회 시 입력한 id가 DB에 없을 때의 예외 처리
   @ExceptionHandler(ContentNotFoundException.class)
   public ResponseEntity<?> handleContentNotFound(ContentNotFoundException e) {
     return ResponseEntity
