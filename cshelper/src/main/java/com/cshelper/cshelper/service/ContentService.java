@@ -1,6 +1,7 @@
 package com.cshelper.cshelper.service;
 
 
+import com.cshelper.cshelper.dto.ContentDto;
 import com.cshelper.cshelper.dto.ContentRegisterDto;
 import com.cshelper.cshelper.entity.Content;
 import com.cshelper.cshelper.mapper.ContentMapper;
@@ -11,6 +12,8 @@ import org.aspectj.apache.bcel.classfile.annotation.RuntimeTypeAnnos;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
 
 // import javax.validation.Valid;
 
@@ -33,7 +36,11 @@ public class ContentService {
 
   }
   
-  // 내용 조회 
+  // 내용 조회
+  public ContentDto findContent(Integer id) {
+    Content content = contentRepository.findById(id).orElseThrow();
+    return ContentMapper.contentToContentDto(content);
+  }
 
 
 
