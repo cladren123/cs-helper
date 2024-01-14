@@ -4,6 +4,7 @@ package com.cshelper.cshelper.service;
 import com.cshelper.cshelper.dto.ContentDto;
 import com.cshelper.cshelper.dto.ContentRegisterDto;
 import com.cshelper.cshelper.entity.Content;
+import com.cshelper.cshelper.exception.ContentNotFoundException;
 import com.cshelper.cshelper.mapper.ContentMapper;
 import com.cshelper.cshelper.repository.ContentRepository;
 import jakarta.validation.Valid;
@@ -38,7 +39,9 @@ public class ContentService {
   
   // 내용 조회
   public ContentDto findContent(Integer id) {
-    Content content = contentRepository.findById(id).orElseThrow();
+    Content content = contentRepository
+            .findById(id)
+            .orElseThrow(() -> new ContentNotFoundException("없는 아이디 입니다."));
     return ContentMapper.contentToContentDto(content);
   }
 

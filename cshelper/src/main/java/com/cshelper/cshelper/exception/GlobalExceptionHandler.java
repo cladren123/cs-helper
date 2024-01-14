@@ -42,6 +42,13 @@ public class GlobalExceptionHandler {
             .body(errors);
   }
 
+  @ExceptionHandler(ContentNotFoundException.class)
+  public ResponseEntity<?> handleContentNotFound(ContentNotFoundException e) {
+    return ResponseEntity
+            .status(HttpStatus.NOT_FOUND)
+            .body(e.getMessage());
+  }
+
 
 
 }
