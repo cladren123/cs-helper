@@ -27,14 +27,14 @@ public class ContentService {
 
   // 내용 등록
   // @Valid를 사용해야 Dto에서 사용한 어노테이션을 적용할 수 있다.
-  public void registerContent(ContentRegisterDto contentRegisterDto) {
+  public Integer registerContent(ContentRegisterDto contentRegisterDto) {
 
     // contentRegisterDto에서 content 변환 매핑
     Content content = ContentMapper.RegisterDtoToContent(contentRegisterDto);
 
-    // content의 DB 저장 검사
-    contentRepository.save(content);
-
+    // content의 DB 저장
+    Content save = contentRepository.save(content);
+    return save.getId();
   }
   
   // 내용 조회

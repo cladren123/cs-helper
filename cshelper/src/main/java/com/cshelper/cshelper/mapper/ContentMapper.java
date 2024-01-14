@@ -19,7 +19,7 @@ public class ContentMapper {
   public static ContentDto contentToContentDto(Content content) {
     return ContentDto.builder()
             .title(content.getTitle())
-            .content(content.getTitle())
+            .content(content.getContent())
             .level(content.getLevel())
             .build();
   }
