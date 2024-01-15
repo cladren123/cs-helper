@@ -33,6 +33,7 @@ class ContentServiceTest {
   // @MockBean은 가짜 객체를 만든다. 응답을 정의해야 한다.
   @MockBean
   ContentRepository contentRepository;
+
   @MockBean
   ContentMapper contentMapper;
 
