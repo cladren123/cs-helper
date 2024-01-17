@@ -39,10 +39,9 @@ public class ContentService {
   
   // 내용 조회
   public ContentDto findContent(Integer id) {
-    Content content = contentRepository
-            .findById(id)
+    return contentRepository
+            .findContentDtoById(id)
             .orElseThrow(() -> new ContentNotFoundException("없는 아이디 입니다."));
-    return ContentMapper.contentToContentDto(content);
   }
 
 
