@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 public class ContentDto {
 
   private String category;
+  private String categoryName;
   private String title;
   private String content;
   private Integer level;
