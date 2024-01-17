@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ContentDto {
 
+  private String category;
   private String title;
   private String content;
   private Integer level;
