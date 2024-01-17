@@ -25,6 +25,8 @@ public class Content {
   private Integer id;
 
   @NotNull
+  private Integer categoryId;
+  @NotNull
   private String title;
   @NotNull
   private String content;
