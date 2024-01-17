@@ -18,4 +18,6 @@ public interface ContentRepository extends JpaRepository<Content, Integer> {
   @Query("SELECT new com.cshelper.cshelper.dto.ContentDto(cat.name, c.title, c.content, c.level)" +
           "FROM Content c JOIN Category cat ON c.categoryId = cat.id WHERE c.id = :contentId ")
   Optional<ContentDto> findContentDtoById(@Param("contentId") Integer contentId);
+
+
 }
