@@ -9,6 +9,7 @@ public class ContentMapper {
   // Register -> Content 변환
   public static Content RegisterDtoToContent(ContentRegisterDto contentRegisterDto) {
     return Content.builder()
+            .categoryId(contentRegisterDto.getCategoryId())
             .title(contentRegisterDto.getTitle())
             .content(contentRegisterDto.getContent())
             .level(contentRegisterDto.getLevel())
