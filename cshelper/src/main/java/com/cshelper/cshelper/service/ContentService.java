@@ -34,7 +34,7 @@ public class ContentService {
 
     // content의 DB 저장
     Content save = contentRepository.save(content);
-    return save.getId();
+    return save.getLevel();
   }
   
   // 내용 조회
