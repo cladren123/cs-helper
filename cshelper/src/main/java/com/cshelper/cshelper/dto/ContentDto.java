@@ -13,7 +13,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ContentDto {
 
-  private String category;
   private String categoryName;
   private String title;
   private String content;
